@@ -13,15 +13,16 @@ class _LoginpageState extends State<Loginpage> {
   final _formkey = GlobalKey<FormState>();
 
   moveToHome(BuildContext context) async {
-    setState(() {
-      changeButton = true;
-    });
-    await Future.delayed(Duration(seconds: 1));
-    await Navigator.pushNamed(context, "/home");
-
-    setState(() {
-      changeButton = false;
-    });
+    if (_formkey.currentState!.validate()) {
+      setState(() {
+        changeButton = true;
+      });
+      await Future.delayed(Duration(seconds: 1));
+      await Navigator.pushNamed(context, "/home");
+      setState(() {
+        changeButton = false;
+      });
+    }
   }
 
   @override
@@ -30,6 +31,7 @@ class _LoginpageState extends State<Loginpage> {
       color: Colors.white,
       child: SingleChildScrollView(
         child: Form(
+          key: _formkey,
           child: Column(
             children: [
               Image.asset(
@@ -56,12 +58,12 @@ class _LoginpageState extends State<Loginpage> {
                 child: Column(
                   children: [
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "Enter your username",
                         labelText: "Username",
                       ),
                       validator: (String? value) {
-                        if (value != null && value.isEmpty) {
+                        if (value!.isEmpty) {
                           return "Username can't be empty";
                         }
                         return null;
@@ -78,8 +80,10 @@ class _LoginpageState extends State<Loginpage> {
                         labelText: "Password",
                       ),
                       validator: (String? value) {
-                        if (value != null && value.isEmpty) {
+                        if (value!.isEmpty) {
                           return "Username can't be empty";
+                        } else if (value.length < 6) {
+                          return "Length should be more than 6";
                         }
                         return null;
                       },
