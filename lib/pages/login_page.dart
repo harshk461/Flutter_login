@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, sort_child_properties_last
+
 import 'package:flutter/material.dart';
 
 class Loginpage extends StatefulWidget {
