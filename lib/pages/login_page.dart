@@ -17,7 +17,7 @@ class _LoginpageState extends State<Loginpage> {
       setState(() {
         changeButton = true;
       });
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1));
       await Navigator.pushNamed(context, "/home");
       setState(() {
         changeButton = false;
@@ -39,17 +39,17 @@ class _LoginpageState extends State<Loginpage> {
                 fit: BoxFit.cover,
                 height: 300,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Text(
                 "Welcome $name",
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Padding(
@@ -75,7 +75,7 @@ class _LoginpageState extends State<Loginpage> {
                     ),
                     TextFormField(
                       obscureText: true,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "Enter your Password",
                         labelText: "Password",
                       ),
@@ -91,23 +91,23 @@ class _LoginpageState extends State<Loginpage> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               InkWell(
                 splashColor: Colors.amber,
                 onTap: () => moveToHome(context),
                 child: AnimatedContainer(
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   width: changeButton ? 50 : 150,
                   height: 50,
                   alignment: Alignment.center,
                   child: changeButton
-                      ? Icon(
+                      ? const Icon(
                           Icons.done,
                           color: Colors.white,
                         )
-                      : Text(
+                      : const Text(
                           "hello",
                           style: TextStyle(
                             color: Colors.white,

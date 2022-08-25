@@ -9,14 +9,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
-        title: Center(
+        title: const Center(
           child: Text("Homepage"),
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Text("Homepage"),
       ),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
     );
   }
 }

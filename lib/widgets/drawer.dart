@@ -6,18 +6,18 @@ class MyDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageUrl = "/assets/images/user.png";
+    const imageUrl = "/assets/images/user.png";
     return Drawer(
       child: Container(
         color: Colors.blue,
         child: ListView(
-          children: [
+          children: const [
             DrawerHeader(
               padding: EdgeInsets.zero,
               child: UserAccountsDrawerHeader(
                   margin: EdgeInsets.zero,
                   accountName: Text("XYZ ABDH"),
-                  accountEmail: const Text("hk21527@gmail.com"),
+                  accountEmail: Text("hk21527@gmail.com"),
                   currentAccountPicture: CircleAvatar(
                     backgroundImage: AssetImage("images/user.png"),
                   )),
